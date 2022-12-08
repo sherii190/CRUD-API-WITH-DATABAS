@@ -25,3 +25,10 @@ router.route("/").get((req, res) => {
       .catch((err) => res.status(400).json("Error: " + err));
   }
 );
+
+// !Read One
+router.route("/:id").get((req, res) => {
+  Item.findById(req.params.id)
+      .then((item) => res.json(item))
+      .catch((err) => res.status(400).json("Error: " + err));
+});
