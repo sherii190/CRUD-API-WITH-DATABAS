@@ -24,7 +24,7 @@ app.use("/items", items); // use the items.js file for any routes that start wit
 
 //get request
 app.get("/", (req, res) => {
-  res.send("Hello from homepage");
+  res.send("Hello from homepage, see all itmes by adding /items");
 });
 
 app.listen(port, () => {
