@@ -17,3 +17,11 @@ router.route("/add").post((req, res) => {
         .then(() => res.json("Item added!"))
         .catch((err) => res.status(400).json("Error: " + err));
 });
+
+// !Read All
+router.route("/").get((req, res) => {
+  Item.find()
+      .then((items) => res.json(items))
+      .catch((err) => res.status(400).json("Error: " + err));
+  }
+);
