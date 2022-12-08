@@ -22,6 +22,11 @@ connection.once("open", () => {
 const items = require("./routes/items"); // require the items.js file from the routes folder
 app.use("/items", items); // use the items.js file for any routes that start with /items
 
+//get request
+app.get("/", (req, res) => {
+  res.send("Hello from homepage");
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
