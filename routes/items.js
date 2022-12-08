@@ -47,3 +47,13 @@ router.route("/:id").put((req, res) => {
       })
       .catch((err) => res.status(400).json("Error: " + err));
 });
+
+// !Delete
+router.route("/:id").delete((req, res) => {
+  Item.findByIdAndDelete(req.params.id)
+      .then(() => res.json("Item deleted."))
+      .catch((err) => res.status(400).json("Error: " + err));
+});
+
+// export the router
+module.exports = router;
