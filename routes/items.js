@@ -32,3 +32,18 @@ router.route("/:id").get((req, res) => {
       .then((item) => res.json(item))
       .catch((err) => res.status(400).json("Error: " + err));
 });
+
+// !Update
+router.route("/:id").put((req, res) => {
+  Item.findByIdAndUpdate(req.params.id)
+      .then((item) => {
+          item.name = req.body.name;
+          item.description = req.body.description;
+          item.price = Number(req.body.price);
+          item
+              .save()
+              .then(() => res.json("Item updated!"))
+              .catch((err) => res.status(400).json("Error: " + err));
+      })
+      .catch((err) => res.status(400).json("Error: " + err));
+});
